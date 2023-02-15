@@ -25,14 +25,20 @@ document.getElementById('generate-pin').addEventListener('click', function(){
 document.getElementById('calculator').addEventListener('click', function(event){
     const number = event.target.innerText;
     const typedNumberField = document.getElementById('typed-numbers');
-
+    const previousNumberField = typedNumberField.value;
     if(isNaN( number)){
         if(number === 'C'){
             typedNumberField.value = '';
         }
+        else if(number === '<'){
+            const digits = previousNumberField.split('');
+            digits.pop();
+            const remainingDigits = digits.join('');
+            typedNumberField.value = remainingDigits;
+        }
     }
     else{
-        const previousNumberField = typedNumberField.value;
+        
         const newNumberField = previousNumberField + number;
         typedNumberField.value = newNumberField;
     }
