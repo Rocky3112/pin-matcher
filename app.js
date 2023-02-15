@@ -43,3 +43,27 @@ document.getElementById('calculator').addEventListener('click', function(event){
         typedNumberField.value = newNumberField;
     }
 })
+
+document.getElementById('verify-pin').addEventListener('click', function(){
+   const displayPinField = document.getElementById('display-pin');
+   const currentPin = displayPinField.value;
+   
+   const typedNumberField = document.getElementById('typed-numbers');
+   const typedNumber = typedNumberField.value;
+
+   const pinSuccess = document.getElementById('pin-success');
+   const pinFailure = document.getElementById('pin-failure');
+
+   if(typedNumber === currentPin){
+    
+    pinSuccess.style.display = 'block';
+    pinFailure.style.display = 'none';
+
+   }
+   else{
+    
+    pinFailure.style.display = 'block';
+    pinSuccess.style.display = 'none';
+   }
+
+})
